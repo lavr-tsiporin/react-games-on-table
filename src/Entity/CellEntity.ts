@@ -4,11 +4,11 @@ export class CellEntity {
   constructor(
     public x: number = 0,
     public y: number = 0,
-    public letter: LetterEntity | null,
-    public id: number = Math.random(),
+    public id: number | null,
+    public letter: LetterEntity | null = null,
   ) {
-    if (letter !== null) {
-      this.letter!.cell = this;
+    if (this.id !== null) {
+      this.letter = new LetterEntity(this, this.id);
     }
   }
 
@@ -32,7 +32,6 @@ export class CellEntity {
   }
 
   public moveLetter(target: CellEntity, nullCell: CellEntity) {
-    console.log(this.letter?.isCanMove(target, nullCell));
     if (this.letter?.isCanMove(target, nullCell)) {
       nullCell.setCell(this.letter);
       this.letter = null;

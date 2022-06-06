@@ -1,6 +1,4 @@
 import { CellEntity } from "./CellEntity";
-import { LetterEntity } from "./LetterEntity";
-
 export class BoardEntity {
   cells: CellEntity[][] = [];
 
@@ -23,18 +21,13 @@ export class BoardEntity {
   public getCopyBoard(): BoardEntity {
     const newBoard = new BoardEntity();
     newBoard.cells = this.cells;
-    console.log(newBoard.cells);
-
     return newBoard;
   }
 
   private createCells(array: { id: number | null }[][]) {
     return array.map((row, idxRow) => {
       return row.map((cell, idxCell) => {
-        return cell.id !== null
-          ? new CellEntity(idxRow, idxCell, new LetterEntity(cell.id))
-          : //@ts-ignore
-            new CellEntity(idxRow, idxCell, null);
+        return new CellEntity(idxRow, idxCell, cell.id);
       });
     });
   }
@@ -59,10 +52,6 @@ export class BoardEntity {
   }
 
   public nullCell() {
-    // return Object.assign(
-    //   {},
-    //   ...this.cells.flat().filter((cell) => cell.letter === null),
-    // );
     return this.cells.flat().filter((cell) => cell.letter === null)[0];
   }
 }

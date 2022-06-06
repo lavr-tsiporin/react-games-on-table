@@ -1,5 +1,5 @@
 export class PlayerEntity {
-  constructor(private count: number = 0) {}
+  constructor(private count: number = 0, public win: boolean = false) {}
 
   public incrementCount() {
     this.count++;

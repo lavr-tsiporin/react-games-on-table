@@ -1,14 +1,9 @@
 import { CellEntity } from "./CellEntity";
+import { FigureEntity } from "./FigureEntity";
 
-export class LetterEntity {
-  cell!: CellEntity;
-
-  constructor(public cost: number | null) {}
-
+export class LetterEntity extends FigureEntity {
   public isCanMove(target: CellEntity, nullCell: CellEntity): boolean {
-    console.log("target", target);
-    console.log("nullCell", nullCell);
-
+    super.isCanMove();
     if (target.isEmptyVertical(nullCell)) {
       const dy = Math.abs(nullCell.y - target.y);
       if (dy === 1) {
