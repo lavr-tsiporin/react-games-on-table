@@ -1,0 +1,9 @@
+.board {
+  width: calc(66px * 4);
+  height: calc(66px * 4);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  border: 2px solid var(--color-sub);
+  user-select: none;
+}

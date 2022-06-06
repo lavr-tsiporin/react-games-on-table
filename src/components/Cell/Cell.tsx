@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { CellEntity } from "../../Entity/CellEntity";
+import "./Cell.css";
 
 interface CellProps {
   cell: CellEntity;

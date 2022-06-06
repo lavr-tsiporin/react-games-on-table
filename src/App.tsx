@@ -4,6 +4,7 @@ import "./App.css";
 import Board from "./components/Board/Board";
 import { BoardEntity } from "./Entity/BoardEntity";
 import { PlayerEntity } from "./Entity/PlayerEntity";
+import { Stats } from "./components/Stats/Player";
 
 interface InitialGame {
   board: BoardEntity;
@@ -38,7 +39,7 @@ function App() {
     <OptionsContext.Provider value={{ optionsContext, setOptionsContext }}>
       <div className="app">
         <h2 className="title">Игра в пятнашки</h2>
-        <h3 className="stats">Счет: {String(player.getCount)}</h3>
+        <Stats player={player} />
         <Board board={board} setBoard={setBoard} player={player} />
         <button className="btn btn-ok btn-shuffle" onClick={() => restart()}>
           перемешать

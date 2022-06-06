@@ -3,6 +3,7 @@ import { BoardEntity } from "../../Entity/BoardEntity";
 import Cell from "../Cell/Cell";
 import { CellEntity } from "../../Entity/CellEntity";
 import { PlayerEntity } from "../../Entity/PlayerEntity";
+import "./Board.css";
 
 interface BoardProps {
   board: BoardEntity;
